@@ -17,5 +17,9 @@ namespace FactoryDesign.Classes {
             else
                 return order.GetTotal();
         }
+
+        public override string ToString() {
+            return "7%";
+        }
     }
 }

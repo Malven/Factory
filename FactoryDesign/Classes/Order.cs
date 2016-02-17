@@ -22,5 +22,13 @@ namespace FactoryDesign.Classes {
             }
             return sum;
         }
+
+        public override string ToString() {
+            string temp = "";
+            foreach ( var item in OrderLines ) {
+                temp += item.Product.Name + ": " + item.Quantity + "st á " + item.Product.UnitPrice + "kr.\n";
+            }
+            return temp;
+        }
     }
 }

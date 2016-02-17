@@ -12,5 +12,9 @@ namespace FactoryDesign.Classes {
             decimal temp = order.GetTotal() * discount;
             return order.GetTotal() - temp;
         }
+
+        public override string ToString() {
+            return "4%";
+        }
     }
 }
