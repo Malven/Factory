@@ -12,6 +12,6 @@ namespace FactoryDesign.Classes {
             strategies.Add( ips );
         }
 
-        public abstract decimal GetTotal( Order order );
+        public abstract IPriceStrategy GetTotal( Order order );
     }
 }

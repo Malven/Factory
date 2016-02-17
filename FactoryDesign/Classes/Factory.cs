@@ -8,29 +8,27 @@ namespace FactoryDesign.Classes {
     public class Factory {
         public Order order = new Order();        
 
-        PercentDiscount p = new PercentDiscount();
-        ThresholdDiscount t = new ThresholdDiscount();
+        PercentDiscount percentDiscount = new PercentDiscount();
+        ThresholdDiscount thresholdDiscount = new ThresholdDiscount();
+        
+        //Gamla sättet med strängar
+        //public IPriceStrategy GetPriceStrategy(string name) {
 
-        public IPriceStrategy GetPriceStrategy(string name) {
+        //    if ( name == PercentDiscount.Name )
+        //        return new PercentDiscount();
+        //    else if ( name == ThresholdDiscount.Name )
+        //        return new ThresholdDiscount();
 
-            if ( name == PercentDiscount.Name )
-                return new PercentDiscount();
-            else if ( name == ThresholdDiscount.Name )
-                return new ThresholdDiscount();
-
-            return null;
-        }
-
-        public decimal GetPriceStrategy(CustomerType cType ) {
+        //    return null;
+        //}
+        public IPriceStrategy GetPriceStrategy(CustomerType cType ) {
             if ( cType == CustomerType.Private ) {
                 BestForCustomer bc = new BestForCustomer();
-                bc.Add( p );
-                bc.Add( t );
+                bc.Add( percentDiscount );
+                bc.Add( thresholdDiscount );
                 return bc.GetTotal( order );
             }
-
-            return 0;
+            return null;
         }
-
     }
 }

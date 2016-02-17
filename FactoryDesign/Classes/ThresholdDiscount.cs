@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace FactoryDesign.Classes {
     class ThresholdDiscount : IPriceStrategy {
-
-        public static string Name = "ThresholdDiscount";
         private decimal discount = 0.07M;
         private int threshold = 400;
 

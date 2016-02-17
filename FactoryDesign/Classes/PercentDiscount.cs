@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace FactoryDesign.Classes {
     class PercentDiscount : IPriceStrategy {
-
-        public static string Name = "PercentDiscount";
         private decimal discount = 0.04M;
 
         public decimal GetTotal( Order order ) {

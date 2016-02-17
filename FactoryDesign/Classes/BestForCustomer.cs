@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 namespace FactoryDesign.Classes {
     class BestForCustomer : Composite {
 
-        public override decimal GetTotal( Order order ) {
-            decimal p = new PercentDiscount().GetTotal(order);
-            decimal t = new ThresholdDiscount().GetTotal( order );
+        public override IPriceStrategy GetTotal( Order order ) {
+            decimal maxValue = decimal.MaxValue;
+            IPriceStrategy strategyToReturn = null;
 
             foreach ( var item in strategies ) {
-                if ( p > t )
-                    return t;
-                else
-                    return p;
+                if(item.GetTotal( order ) < maxValue ) {
+                    maxValue = item.GetTotal( order );
+                    strategyToReturn = item;
+                }
             }
-            return p;
+            return strategyToReturn;
         }
     }
 }
